@@ -1,0 +1,19 @@
+<ion-header [translucent]="true" class="header">
+    <ion-toolbar class="header_bg">
+        <ion-title class="title">My Goals</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div class="goals-bg">        
+        <ion-grid class="goal_card">
+            <ion-row class="goal_header">
+                <ion-col size="12">
+                    <img src="../../../assets/images/goals-img.svg" alt="">
+                    <h2 class="title">You have not added any goals.</h2>
+                    <ion-button expand="block" class="goal_add_btn" [routerLink]="['/add-goals']"><ion-icon name="add-circle-outline" class="add_icon"></ion-icon> Add Your First Goal</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

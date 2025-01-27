@@ -1,0 +1,66 @@
+<ion-content>
+    <ion-grid class="header" >
+        <ion-row class="header-bg">
+            <img src="../../assets/images/header-bg.svg" alt="BG Image" class="bg-img" />
+        </ion-row>
+        <ion-row  class="header-content" style="position: relative;">
+            <ion-col>
+                <img src="../../assets/icon/logo.svg" alt="Pen-Z Logo" class="logo" />
+                <h2 class="title">Sign in to your Account</h2>
+                <p class="subtitle">Get the best personalized product recommendations</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="login-container">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item customInput class="login-item">
+                        <img src="../../assets/icon/mail-icon.svg" alt="email" class="login-form-icon">
+                        <ion-input  placeholder="E-mail ID" class="login-input"></ion-input>                      
+                    </ion-item>
+                    <ion-item class="login-item">
+                        <img src="../../assets/icon/pass-word.svg" alt="email" class="login-form-icon">
+                        <ion-input  placeholder="Password" type="password" class="login-input"></ion-input> 
+                    </ion-item>
+                    <ion-item  lines="none" class="remeber-head">
+                        <ion-checkbox slot="start" class="ion-checkbox"></ion-checkbox>
+                        <ion-label class="remeber-text">Remember me</ion-label>
+                        <a class="forgot-password" href="#">Forgot Password?</a>
+                    </ion-item>
+                    <ion-button expand="block" class="login-button">Login</ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12" class="divider">
+                    <div class="divider-container">
+                        <span class="divider-text">Or login with</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="media-header">
+                <ion-col size="6">
+                    <ion-button expand="block"  class="media-button">
+                        <img src="../../assets/icon/google.svg" alt="google" class="media-icons">
+                        <span class="media-text">Google</span>
+                    </ion-button>
+                </ion-col>
+
+                <ion-col size="6">
+                    <ion-button expand="block"  class="media-button">
+                        <img src="../../assets/icon/fb.svg" alt="fb" class="media-icons">
+                        <span class="media-text">Facebook</span>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12" class="signup-text">
+                    <p>New to Pen-Z AI? <a [routerLink]="['/signup']">Sign Up now</a></p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

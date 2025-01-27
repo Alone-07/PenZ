@@ -1,0 +1,191 @@
+ion-grid, ion-col{
+    padding: 0px;
+}
+
+.custom-header {
+    box-shadow: none;
+    
+    ion-toolbar {
+        --background: var(--primary-clr);
+        padding: 0px;
+
+        .custom-back-button{
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .header-title {
+            color: #fff;
+            font-size: 18px;
+            line-height: 32px;
+            font-weight: 500;
+            font-family: "DM Sans", serif;
+            margin: 0;
+            padding: 0px;
+        }
+    }
+}
+
+.prod-bg{
+    background-color: rgba(151, 32, 115, 0.05);
+    width: 100%;
+    height: auto;
+}
+
+
+
+.products_card{
+    background-color: #ffffff;
+    padding: 20px;
+    padding-top: 8px;
+    box-shadow: 0px 0px 0px 1px #E2E8F0;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    margin-bottom: 20px;
+
+    .subtitle{
+        font-size: 10px;
+        font-weight: 400;
+        font-family: "DM Sans", serif;
+        color: #939393;
+    }
+
+    .title{
+        margin: 0px;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "DM Sans", serif;
+        color: #000;
+    }
+
+    .card_header{
+        margin-bottom: 30px;
+
+        .card_icons_header{
+            display: flex ;
+            align-items: center;
+            justify-content: center;
+            .card_icons{
+                background-color: #fff;
+                border-radius: 50%;
+                padding: 5px;
+                width: 25px;
+                height: 25px;
+                margin-left: 8px;
+                border: 1px solid #EDEDED;
+
+                img{
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+
+    .prod_head{
+        text-align: center;
+        .prod_img{
+            width: 150px;
+            height: 150px;
+        }
+    }
+}
+
+
+.description_card{
+    background-color: #ffffff;
+    padding: 25px;
+    padding-top: 8px;
+    box-shadow: 0px 0px 0px 1px #E2E8F0;
+    border-radius: 40px;
+    margin-bottom: 20px;
+
+    &.rating_card{
+        margin-bottom: 0px;
+    }
+
+    .description_para{
+        font-size: 14px;
+        font-family: "DM Sans", serif;
+        font-weight: 500;
+        color: #000;
+        line-height: 160%;
+        margin: 0px;
+
+        &.main{
+            margin-bottom: 25px;
+        }
+    }
+
+    .description_title{
+        font-size: 16px;
+        font-family: "DM Sans", serif;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 13px;
+
+        &.rating_heading{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    }
+
+    .description_lists_head{
+        padding-left: 25px;
+        margin-top: 0px;
+
+        li{
+            font-size: 14px;
+            font-family: "DM Sans", serif;
+            font-weight: 500;
+            color: #000;
+            line-height: 160%;
+            margin: 0px;
+        }
+    }
+        
+    .description_subtitle{
+        font-size: 14px;
+        font-family: "DM Sans", serif;
+        font-weight: bold;
+        color: #000;
+        line-height: 160%;
+        margin: 0px;
+    }
+
+    .rating_star{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+
+        img{
+            width: 30px;
+            height: 30px;
+            margin-left: 3px;
+        }
+    }
+
+    .comment_area{
+        width: 100%;
+        margin-bottom: 20px;
+        color: #747474;
+    }
+
+    .rating_btn {
+        --background: var(--primary-clr);
+        --background-hover: #931d6a;
+        --background-activated: #d5399f;
+        --background-focused: #d5399f;
+           min-height:55px;
+        --color: #fff;
+        --border-radius: 8px;
+        --border-style: solid;
+        --border-width: 0px;
+        text-transform: none;
+        --padding: 15px;
+        font-weight: bold;
+        font-family: "DM Sans", serif;
+        font-size: 16px;
+        line-height: 24px;
+    }   
+}

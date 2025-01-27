@@ -1,0 +1,88 @@
+<ion-header [translucent]="true" class="custom-header">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/" icon="arrow-back-circle" class="custom-back-button"></ion-back-button>
+            <!-- <ion-icon name="arrow-back-circle" class="custom-back-button"></ion-icon> -->
+        </ion-buttons>
+        <ion-title class="header-title">
+            Product Details
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div class="prod-bg">        
+        <ion-grid class="products_card">
+            <ion-row class="card_header">
+                <ion-col size="8">
+                    <span class="subtitle">Clinique</span>
+                    <h2 class="title">Clinique Moisture Surge 100H Auto-Replenishing Hydrator</h2>
+                </ion-col>
+                <ion-col size="4">
+                    <div class="card_icons_header">
+                        <div class="card_icons">
+                            <img src="../../assets/icon/plus.png" alt="" >
+                        </div>
+                        <div class="card_icons">
+                            <img src="../../assets/icon/like.png" alt="" >
+                        </div>
+                        <div class="card_icons">
+                            <img src="../../assets/icon/share.png" alt="">
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <div class="prod_head">
+                        <img src="../../assets/images/prod.png" alt="" class="prod_img">
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid class="description_card">
+            <ion-row class="description_header">
+                <ion-col size="12">
+                    <p class="description_para main">
+                        Refreshing oil-free face moisturizer with aloe bioferment and hyaluronic acid delivers instant hydration that soothes in 3 seconds. 100% instantly show a boost in hydration and glow.
+                    </p>
+                    <h2 class="description_title">Ingredients</h2>
+                    <p class="description_para">
+                        Aloe Bioferment + HA Complex combines two hydrating ingredients into one powerhouse complex to help attract moisture and retain it:
+                    </p>
+                    <ul class="description_lists_head">
+                        <li>Aloe bioferment: Built on more than 30 years of research in fermentation technology, this hydrating ingredient starts with the aloe vera plant, which is concentrated over 500 times. It's further transformed into a bioferment through a meticulous 10-step fermentation process over 5+ days. This process breaks down actives into smaller molecules, so they are more bioavailable to better penetrate skin. The result: a nutrient-rich ingredient that helps skin retain moisture.</li>
+                        <li>Hyaluronic acid: This moisture-binding ingredient helps create a “moisture reservoir” for ideal hydration. Our formula is expertly blended with two different molecular weights of hyaluronic acid.</li>
+                    </ul>
+                    <h2 class="description_subtitle">Other key ingredients include:</h2>
+                    <ul class="description_lists_head">
+                        <li>Blend of vitamins C and E: Helps provide antioxidant protection against daily dehydrators.</li>
+                        <li>Activated aloe water: Pure water is infused with aloe barbadensis leaf extract, then supercharged to hold both positive and negative ionic charges.</li>
+                        <li>Auto-Replenishing Technology: Using activated aloe water and caffeine, it helps trigger skin’s own rehydration system.</li>
+                        <li>Dermatologist tested</li>
+                        <li>Allergy tested</li>
+                        <li>Non-Acnegenic.</li>
+                    </ul>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid class="description_card rating_card">
+            <ion-row class="description_header">
+                <ion-col size="12">
+                    <h2 class="description_title rating_heading">What is your rating this Product</h2>
+                    <div class="rating_star">
+                        <img src="../../assets/icon/rating_star.png" alt="rating_star">
+                        <img src="../../assets/icon/rating_star.png" alt="rating_star">
+                        <img src="../../assets/icon/rating_star.png" alt="rating_star">
+                        <img src="../../assets/icon/rating_star.png" alt="rating_star">
+                        <img src="../../assets/icon/rating_star2.png" alt="rating_star">
+                    </div>
+                    <ion-textarea   label="Comments" labelPlacement="floating" fill="outline" placeholder="Enter your comments" rows="6" cols="12" class="comment_area"></ion-textarea>
+                    <ion-button expand="block" class="rating_btn">Submit</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-content>
+    <ion-grid class="header" >
+        <ion-row class="header-bg">
+            <img src="../../assets/images/header-bg.svg" alt="BG Image" class="bg-img" />
+        </ion-row>
+        <ion-row  class="header-content" style="position: relative;">
+            <ion-col>
+                <img src="../../assets/icon/logo.svg" alt="Pen-Z Logo" class="logo" />
+                <h2 class="title">Get Started now</h2>
+                <p class="subtitle">Create an account to explore personalized  recommendations</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="signup-container">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item customInput class="signup-item">
+                        <img src="../../assets/icon/user-icon.svg" alt="user" class="signup-form-icon">
+                        <ion-input  placeholder="Full Name" class="signup-input"></ion-input>                      
+                    </ion-item>
+                    <ion-item customInput class="signup-item">
+                        <img src="../../assets/icon/date-icon.svg" alt="date" class="signup-form-icon">
+                        <ion-input  placeholder="Date of Birth"  class="signup-input"></ion-input>                      
+                    </ion-item>
+                    <ion-item customInput class="signup-item">
+                        <img src="../../assets/icon/mail-icon.svg" alt="email" class="signup-form-icon">
+                        <ion-input  placeholder="E-mail ID" class="signup-input"></ion-input>                      
+                    </ion-item>
+                    <ion-item class="signup-item">
+                        <img src="../../assets/icon/pass-word.svg" alt="email" class="signup-form-icon">
+                        <ion-input  placeholder="Password" type="password" class="signup-input"></ion-input> 
+                    </ion-item>
+                    <ion-item customInput class="signup-item phone">
+                        <img src="../../assets/icon/phone-icon.svg" alt="phone" class="signup-form-icon">
+                        <ion-input  placeholder="Phone Number" class="signup-input"></ion-input>                      
+                    </ion-item>
+                    <ion-button expand="block" class="signup-button">Sign Up</ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12" class="divider">
+                    <div class="divider-container">
+                        <span class="divider-text">Or Sign up with</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="media-header">
+                <ion-col size="6">
+                    <ion-button expand="block"  class="media-button">
+                        <img src="../../assets/icon/google.svg" alt="google" class="media-icons">
+                        <span class="media-text">Google</span>
+                    </ion-button>
+                </ion-col>
+
+                <ion-col size="6">
+                    <ion-button expand="block"  class="media-button">
+                        <img src="../../assets/icon/fb.svg" alt="fb" class="media-icons">
+                        <span class="media-text">Facebook</span>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="12" class="signup-text">
+                    <p>Already have an account? <a [routerLink]="['/login']">Login</a></p>
+                </ion-col>
+                
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>
