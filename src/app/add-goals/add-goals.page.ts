@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-add-goals',
@@ -77,8 +78,11 @@ export class AddGoalsPage implements OnInit {
   isSelected(list: string[], item: string): boolean {
     return list.includes(item);
   }
-
-  constructor() { }
+  
+  questions = [];
+  constructor(private apiService: ApiService) { 
+    this.getQuestions();
+  }
 
   ngOnInit() {
   }
@@ -92,5 +96,47 @@ export class AddGoalsPage implements OnInit {
     // Handle continue action
     console.log('Continue button clicked');
   }
+  
+  async getQuestions() {
+    const res: any = await this.apiService.getCaterogyQuestions()
+      if(!res || res.statusCode != 200) {
+        console.warn('Theres not data & statusCode ', res?.statusCode);
+        return;
+      }
 
+      const {statusCode, body: {Result}} = res;
+      const filteredResult = new Map();
+
+      if(statusCode == '200' && Result && Result.length) {
+        Result.forEach((e:any) => {
+          const {SUB_CATEGORY_ID, SUB_CATEGORY_NAME, QUESTION, OPTIONS, IS_ACTIVE} = e;
+          if(filteredResult.has(SUB_CATEGORY_ID)) {
+
+            let data = filteredResult.get(SUB_CATEGORY_ID);
+            const questionData = {
+              question: QUESTION,
+              options: OPTIONS,
+            };
+            data = {
+              ...data,
+              questions: [...data.questions, questionData]
+            };
+            filteredResult.set(SUB_CATEGORY_ID, data);
+          }else {
+            const questionData = {
+              question: QUESTION,
+              options: OPTIONS,
+            };
+            const data = {
+              subCategoryId: SUB_CATEGORY_ID,
+              subCategoryName: SUB_CATEGORY_NAME,
+              questions: [questionData],
+              isActive: IS_ACTIVE,
+            };
+            filteredResult.set(SUB_CATEGORY_ID, data);
+          }
+        });
+        console.warn('result => ', filteredResult);
+      }
+  }
 }

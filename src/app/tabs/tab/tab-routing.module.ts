@@ -4,7 +4,7 @@ import { TabComponent } from './tab.component';
 
 const routes: Routes = [
   {
-    path: 'tab',
+    path: 'tabs',
     component: TabComponent,
     children: [
       {
@@ -23,11 +23,16 @@ const routes: Routes = [
         path: 'account',
         loadChildren: () => import('../account/account.module').then(e => e.AccountModule),
       },
+      {
+        path: '',
+        redirectTo: '/tabs/dashboard',
+        pathMatch: 'full'
+      }
     ]
   },
   {
     path: '',
-    redirectTo: 'tab/dashboard',
+    redirectTo: '/tabs/dashboard',
     pathMatch: 'full'
   }
 ];

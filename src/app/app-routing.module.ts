@@ -18,25 +18,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    pathMatch: 'full',
     loadChildren: () => import('./tabs/tab/tab.module').then(e => e.TabModule),
-  },
-  {
-    path: 'tab/goals',
-    loadChildren: () => import('./tabs/goals/goals.module').then(e => e.GoalsModule),
   },
   {
     path: 'products',
     loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
   },
-  {
-    path: 'add-goals',
-    loadChildren: () => import('./add-goals/add-goals.module').then( m => m.AddGoalsPageModule)
-  },
-  {
-    path: 'target-goals',
-    loadChildren: () => import('./target-goals/target-goals.module').then( m => m.TargetGoalsPageModule)
-  }
 ];
 @NgModule({
   imports: [IonicModule,

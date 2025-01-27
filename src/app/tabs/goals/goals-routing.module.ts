@@ -5,8 +5,16 @@ import { GoalsComponent } from './goals.component';
 const routes: Routes = [
   {
       path: '',
-      component: GoalsComponent
-    }
+      component: GoalsComponent,
+  },
+  {  
+    path: 'add-goals',
+    loadChildren: () => import('../../add-goals/add-goals.module').then( m => m.AddGoalsPageModule)
+  },
+  {
+    path: 'target-goals',
+    loadChildren: () => import('../../target-goals/target-goals.module').then( m => m.TargetGoalsPageModule)
+  }
 ];
 
 @NgModule({
