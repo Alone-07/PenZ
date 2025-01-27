@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
   },
+  {
+    path: 'list-goals',
+    loadChildren: () => import('./list-goals/list-goals.module').then( m => m.ListGoalsPageModule)
+  },
 ];
 @NgModule({
   imports: [IonicModule,

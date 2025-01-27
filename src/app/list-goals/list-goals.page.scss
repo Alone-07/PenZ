@@ -1,0 +1,108 @@
+.header{
+    box-shadow: none;
+    
+    .header_bg{
+        --background: var(--primary-clr) !important;
+
+        .title{
+            color: #fff;
+            font-size: 18px;
+            line-height: 32px;
+            font-weight: 500;
+            font-family: "DM Sans", serif;
+            margin: 0px;
+            text-align: center;
+        }
+    }
+}
+
+.custom-segment {
+    background: var(--background-color);
+    border-radius: 20px;
+    padding: 4px;
+    margin-bottom: 16px;
+}
+
+.segment-button-active {
+    --background: var(--primary-clr);
+    --color: white;
+    border-radius: 16px;
+}
+
+  ion-segment-button {
+    --color: #666666;
+    --background: #EBE7EA;
+    --background-checked: var(--primary-clr);
+    --color-checked: white;
+    font-size: 14px;
+    text-transform: none;
+    border-radius: 8px;
+    margin: 0px 5px;
+  }
+
+  .goals-container {
+    padding: 8px;
+  }
+
+  .goal-card {
+    background: var(--card-background);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  }
+
+  .goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    font-size: 16px;
+    color: #333;
+  }
+
+
+  ion-card-content{
+    padding: 15px;
+  }
+  ion-card {
+    margin: 16px;
+    border-radius: 12px;
+  }
+
+  ion-list{
+    padding: 0px;
+  }
+
+  .dropdown_head{
+    --padding-start: 16px;
+    --padding-end: 16px;
+  }
+
+  ion-icon{
+    rotate: -90deg;
+  }
+
+  ion-label{
+    margin: 0px;
+  }
+  
+  ion-item {
+    --padding-start: 0px;
+    --padding-end: 0px;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-size: 14px;
+    color: var(--ion-color-medium);
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--ion-color-dark);
+  }

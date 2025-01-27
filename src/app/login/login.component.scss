@@ -14,7 +14,7 @@
     .header-content{
         position: relative;
         text-align: center;
-        padding: 80px 30px 20px; 
+        padding: 40px 30px 20px; 
 
         .logo{
             margin-bottom: 30px;
@@ -37,6 +37,7 @@
             font-family: "Roboto", serif;
             margin-bottom: 20px;
             line-height: 16px;
+            margin: 0px;
         }
     }
 }
@@ -153,7 +154,7 @@
     }
 
     .media-header{
-        margin-bottom: 100px;
+        margin-bottom: 10px;
 
         .media-button{
             --background: transparent;
