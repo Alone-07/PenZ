@@ -83,4 +83,14 @@ export class AddGoalsPage implements OnInit {
   ngOnInit() {
   }
 
+  onCancel() {
+    // Handle cancel action
+    console.log('Cancel button clicked');
+  }
+
+  onContinue() {
+    // Handle continue action
+    console.log('Continue button clicked');
+  }
+
 }

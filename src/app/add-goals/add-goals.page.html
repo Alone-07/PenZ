@@ -11,77 +11,90 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-grid class="goals-filter">
-        <ion-row class="goals-select">
-            <ion-col size="12">
-                <h1 class="title">Category</h1>  
-                <div class="select-container">
-                    <ion-chip *ngFor="let category of categories" (click)="toggleSelection(selectedCategories, category)" [class.selected]="isSelected(selectedCategories, category)" class="select_option">
-                        {{ category }}
-                    </ion-chip>
-                </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="goals-select">
-            <ion-col size="12">
-                <h1 class="title">Skin Type</h1>  
-                <div class="select-container">
-                    <ion-chip *ngFor="let skinType of skinTypes" (click)="toggleSelection(selectedSkinTypes, skinType)" [class.selected]="isSelected(selectedSkinTypes, skinType)" class="select_option">
-                        {{ skinType }}
-                    </ion-chip>
-                </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="goals-select">
-            <ion-col size="12">
-                <h1 class="title">Any specific skin concerns?</h1>  
-                <div class="select-container">
-                    <ion-chip *ngFor="let specificSkin of specificSkin" (click)="toggleSelection(selectedSpecificSkin, specificSkin)" [class.selected]="isSelected(selectedSpecificSkin, specificSkin)" class="select_option">
-                        {{ specificSkin }}
-                    </ion-chip>
-                </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="goals-select">
-            <ion-col size="12">
-                <h1 class="title">Any known skin conditions?</h1>  
-                <div class="select-container">
-                    <ion-chip *ngFor="let skinConditions of skinConditions" (click)="toggleSelection(selectedSkinConditions, skinConditions)" [class.selected]="isSelected(selectedSkinConditions, skinConditions)" class="select_option">
-                        {{ skinConditions }}
-                    </ion-chip>
-                </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="goals-select">
-            <ion-col size="12">
-                <h1 class="title">What skin care products do you currently use?</h1>  
-                <div class="select-container">
-                    <ion-chip *ngFor="let currentlyUse of currentlyUse" (click)="toggleSelection(selectedCurrentlyUse, currentlyUse)" [class.selected]="isSelected(selectedCurrentlyUse, currentlyUse)" class="select_option">
-                        {{ currentlyUse }}
-                    </ion-chip>
-                </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="goals-select">
-            <ion-col size="12">
-                <h1 class="title">How often do you use skin care products?</h1>  
-                <div class="select-container">
-                    <ion-chip *ngFor="let skinCareProducts of skinCareProducts" (click)="toggleSelection(selectedSkinCareProducts, skinCareProducts)" [class.selected]="isSelected(selectedSkinCareProducts, skinCareProducts)" class="select_option">
-                        {{ skinCareProducts }}
-                    </ion-chip>
-                </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="goals-select">
-            <ion-col size="12">
-                <h1 class="title">Do you prefer natural/organic products?</h1>  
-                <div class="select-container">
-                    <ion-chip *ngFor="let naturalOrOrganic of naturalOrOrganic" (click)="toggleSelection(selectedNaturalOrOrganic, naturalOrOrganic)" [class.selected]="isSelected(selectedNaturalOrOrganic, naturalOrOrganic)" class="select_option">
-                        {{ naturalOrOrganic }}
-                    </ion-chip>
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+<ion-content [fullscreen]="true">
+    <div class="goals-bg">  
+        <ion-grid class="goals-filter">
+            <ion-row class="goals-select">
+                <ion-col size="12">
+                    <h1 class="title">Category</h1>  
+                    <div class="select-container">
+                        <ion-chip *ngFor="let category of categories" (click)="toggleSelection(selectedCategories, category)" [class.selected]="isSelected(selectedCategories, category)" class="select_option">
+                            {{ category }}
+                        </ion-chip>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row class="goals-select">
+                <ion-col size="12">
+                    <h1 class="title">Skin Type</h1>  
+                    <div class="select-container">
+                        <ion-chip *ngFor="let skinType of skinTypes" (click)="toggleSelection(selectedSkinTypes, skinType)" [class.selected]="isSelected(selectedSkinTypes, skinType)" class="select_option">
+                            {{ skinType }}
+                        </ion-chip>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row class="goals-select">
+                <ion-col size="12">
+                    <h1 class="title">Any specific skin concerns?</h1>  
+                    <div class="select-container">
+                        <ion-chip *ngFor="let specificSkin of specificSkin" (click)="toggleSelection(selectedSpecificSkin, specificSkin)" [class.selected]="isSelected(selectedSpecificSkin, specificSkin)" class="select_option">
+                            {{ specificSkin }}
+                        </ion-chip>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row class="goals-select">
+                <ion-col size="12">
+                    <h1 class="title">Any known skin conditions?</h1>  
+                    <div class="select-container">
+                        <ion-chip *ngFor="let skinConditions of skinConditions" (click)="toggleSelection(selectedSkinConditions, skinConditions)" [class.selected]="isSelected(selectedSkinConditions, skinConditions)" class="select_option">
+                            {{ skinConditions }}
+                        </ion-chip>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row class="goals-select">
+                <ion-col size="12">
+                    <h1 class="title">What skin care products do you currently use?</h1>  
+                    <div class="select-container">
+                        <ion-chip *ngFor="let currentlyUse of currentlyUse" (click)="toggleSelection(selectedCurrentlyUse, currentlyUse)" [class.selected]="isSelected(selectedCurrentlyUse, currentlyUse)" class="select_option">
+                            {{ currentlyUse }}
+                        </ion-chip>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row class="goals-select">
+                <ion-col size="12">
+                    <h1 class="title">How often do you use skin care products?</h1>  
+                    <div class="select-container">
+                        <ion-chip *ngFor="let skinCareProducts of skinCareProducts" (click)="toggleSelection(selectedSkinCareProducts, skinCareProducts)" [class.selected]="isSelected(selectedSkinCareProducts, skinCareProducts)" class="select_option">
+                            {{ skinCareProducts }}
+                        </ion-chip>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row class="goals-select">
+                <ion-col size="12">
+                    <h1 class="title">Do you prefer natural/organic products?</h1>  
+                    <div class="select-container">
+                        <ion-chip *ngFor="let naturalOrOrganic of naturalOrOrganic" (click)="toggleSelection(selectedNaturalOrOrganic, naturalOrOrganic)" [class.selected]="isSelected(selectedNaturalOrOrganic, naturalOrOrganic)" class="select_option">
+                            {{ naturalOrOrganic }}
+                        </ion-chip>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="onCancel()" class="cancel-button">Cancel</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="onContinue()" class="continue-button">Continue</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

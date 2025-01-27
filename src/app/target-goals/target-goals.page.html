@@ -1,0 +1,52 @@
+<ion-header [translucent]="true" class="custom-header">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/" icon="arrow-back-circle" class="custom-back-button"></ion-back-button>
+            <!-- <ion-icon name="arrow-back-circle" class="custom-back-button"></ion-icon> -->
+        </ion-buttons>
+        <ion-title class="header-title">
+            Add a Goal
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div class="goals-bg"> 
+        <ion-grid>
+            <ion-row class="target-head">
+                <ion-col size="12">
+                    <h2 class="title">Define your Goal</h2>
+                    <ion-input label="My Skin Care - Goal" label-placement="floating" fill="outline" placeholder="My Skin Care - Goal" class="goal-input"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row class="">
+                <ion-col size="12">
+                    <h2 class="title subtitle">Target Date</h2>
+                    <ion-datetime locale="en-GB" hourCycle="h12" presentation="date" multiple="true" preferWheel="false"></ion-datetime>
+                </ion-col>
+            </ion-row>
+            <ion-row class="">
+                <ion-col size="12">
+                    <h2 class="title subtitle">Progress Tracker</h2>
+                    <progress value="50" max="100"> </progress>
+                    <div class="prog_range">
+                        <p>78 days left</p>
+                        <p>120 Days</p>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button class="cancel-button">Back</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button class="continue-button">Save</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>
