@@ -2,7 +2,7 @@
 <ion-header [translucent]="true" class="custom-header">
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/" icon="arrow-back-circle" class="custom-back-button"></ion-back-button>
+            <ion-back-button defaultHref="" icon="arrow-back-circle" class="custom-back-button" (click)="goBack()"></ion-back-button>
             <!-- <ion-icon name="arrow-back-circle" class="custom-back-button"></ion-icon> -->
         </ion-buttons>
         <ion-title class="header-title">
@@ -18,72 +18,24 @@
                 <ion-col size="12">
                     <h1 class="title">Category</h1>  
                     <div class="select-container">
-                        <ion-chip *ngFor="let category of categories" (click)="toggleSelection(selectedCategories, category)" [class.selected]="isSelected(selectedCategories, category)" class="select_option">
-                            {{ category }}
+                        <ion-chip *ngFor="let category of categories" (click)="toggleCategorySelection(category.subCategoryId)" [class.selected]="category.isActive == 'Y'" class="select_option">
+                            {{ category.subCategoryName }}
                         </ion-chip>
                     </div>
                 </ion-col>
             </ion-row>
-            <ion-row class="goals-select">
-                <ion-col size="12">
-                    <h1 class="title">Skin Type</h1>  
-                    <div class="select-container">
-                        <ion-chip *ngFor="let skinType of skinTypes" (click)="toggleSelection(selectedSkinTypes, skinType)" [class.selected]="isSelected(selectedSkinTypes, skinType)" class="select_option">
-                            {{ skinType }}
-                        </ion-chip>
-                    </div>
-                </ion-col>
-            </ion-row>
-            <ion-row class="goals-select">
-                <ion-col size="12">
-                    <h1 class="title">Any specific skin concerns?</h1>  
-                    <div class="select-container">
-                        <ion-chip *ngFor="let specificSkin of specificSkin" (click)="toggleSelection(selectedSpecificSkin, specificSkin)" [class.selected]="isSelected(selectedSpecificSkin, specificSkin)" class="select_option">
-                            {{ specificSkin }}
-                        </ion-chip>
-                    </div>
-                </ion-col>
-            </ion-row>
-            <ion-row class="goals-select">
-                <ion-col size="12">
-                    <h1 class="title">Any known skin conditions?</h1>  
-                    <div class="select-container">
-                        <ion-chip *ngFor="let skinConditions of skinConditions" (click)="toggleSelection(selectedSkinConditions, skinConditions)" [class.selected]="isSelected(selectedSkinConditions, skinConditions)" class="select_option">
-                            {{ skinConditions }}
-                        </ion-chip>
-                    </div>
-                </ion-col>
-            </ion-row>
-            <ion-row class="goals-select">
-                <ion-col size="12">
-                    <h1 class="title">What skin care products do you currently use?</h1>  
-                    <div class="select-container">
-                        <ion-chip *ngFor="let currentlyUse of currentlyUse" (click)="toggleSelection(selectedCurrentlyUse, currentlyUse)" [class.selected]="isSelected(selectedCurrentlyUse, currentlyUse)" class="select_option">
-                            {{ currentlyUse }}
-                        </ion-chip>
-                    </div>
-                </ion-col>
-            </ion-row>
-            <ion-row class="goals-select">
-                <ion-col size="12">
-                    <h1 class="title">How often do you use skin care products?</h1>  
-                    <div class="select-container">
-                        <ion-chip *ngFor="let skinCareProducts of skinCareProducts" (click)="toggleSelection(selectedSkinCareProducts, skinCareProducts)" [class.selected]="isSelected(selectedSkinCareProducts, skinCareProducts)" class="select_option">
-                            {{ skinCareProducts }}
-                        </ion-chip>
-                    </div>
-                </ion-col>
-            </ion-row>
-            <ion-row class="goals-select">
-                <ion-col size="12">
-                    <h1 class="title">Do you prefer natural/organic products?</h1>  
-                    <div class="select-container">
-                        <ion-chip *ngFor="let naturalOrOrganic of naturalOrOrganic" (click)="toggleSelection(selectedNaturalOrOrganic, naturalOrOrganic)" [class.selected]="isSelected(selectedNaturalOrOrganic, naturalOrOrganic)" class="select_option">
-                            {{ naturalOrOrganic }}
-                        </ion-chip>
-                    </div>
-                </ion-col>
-            </ion-row>
+            <ng-content *ngFor="let question of selectedCategory.questions; let questionId = index;">
+                <ion-row class="goals-select">
+                    <ion-col size="12">
+                        <h1 class="title">{{question.question}}</h1>  
+                        <div class="select-container">
+                            <ion-chip *ngFor="let option of question.options; let optionId = index;" (click)="toggleQuestionSelection(questionId, optionId)" [class.selected]="question.selectedOption == option.id" class="select_option">
+                                {{ option.option_value }}
+                            </ion-chip>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ng-content>
         </ion-grid>
     </div>
 </ion-content>

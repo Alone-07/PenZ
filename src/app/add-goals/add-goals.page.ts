@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-goals',
@@ -9,78 +10,12 @@ import { ApiService } from '../services/api.service';
 })
 export class AddGoalsPage implements OnInit {
 
-  categories = [
-    'Skin Care',
-    'Hair Care',
-    'Body Care',
-    'Oral Care',
-    'Feminine Hygiene',
-    'Baby Care',
-    'Supplements and Vitamins'
-  ];
+  mapCategories:Map<any,any> = new Map();
+  categories:any = [];
+  selectedCategory: any = {};
 
-  skinTypes = [
-    'Oily Skin',
-    'Dry Skin',
-    'Sensitive Skin'
-  ];
-
-  specificSkin = [
-    'Acne or breakouts',
-    'Blackheads',
-    'whiteheads',
-    'Dark Spots'
-  ];
-
-  skinConditions = [
-    'Eczema',
-    'Psoriasis',
-    'Rosacea',
-    'None'
-  ];
-
-  currentlyUse = [
-    'Cleanser',
-    'Toner',
-    'Moisturizer',
-    'Sunscreen'
-  ];
-
-  skinCareProducts = [
-    'Daily',
-    'Occasionally',
-    'Rarely'
-  ];
-
-  naturalOrOrganic = [
-    'Yes',
-    'No',
-    'No preference'
-  ];
-
-  selectedCategories: string[] = [this.categories[0]];
-  selectedSkinTypes: string[] = [this.skinTypes[0]];
-  selectedSpecificSkin: string[] = [this.specificSkin[0]];
-  selectedSkinConditions: string[] = [this.skinConditions[0]];
-  selectedCurrentlyUse: string[] = [this.currentlyUse[0]];
-  selectedSkinCareProducts: string[] = [this.skinCareProducts[0]];
-  selectedNaturalOrOrganic: string[] = [this.naturalOrOrganic[0]];
-
-  toggleSelection(list: string[], item: string) {
-    const index = list.indexOf(item);
-    if (index > -1) {
-      list.splice(index, 1);
-    } else {
-      list.push(item);
-    }
-  }
-
-  isSelected(list: string[], item: string): boolean {
-    return list.includes(item);
-  }
-  
-  questions = [];
-  constructor(private apiService: ApiService) { 
+  loader: any;
+  constructor(private apiService: ApiService, private navigator: NavController, private loaderCtrl: LoadingController, private toastCtrl: ToastController) { 
     this.getQuestions();
   }
 
@@ -88,55 +23,115 @@ export class AddGoalsPage implements OnInit {
   }
 
   onCancel() {
-    // Handle cancel action
-    console.log('Cancel button clicked');
+    this.goBack();
   }
 
   onContinue() {
-    // Handle continue action
-    console.log('Continue button clicked');
+    this.validation();
   }
   
   async getQuestions() {
+    this.showLoading();
     const res: any = await this.apiService.getCaterogyQuestions()
+    this.hideLoading();
       if(!res || res.statusCode != 200) {
         console.warn('Theres not data & statusCode ', res?.statusCode);
         return;
       }
 
       const {statusCode, body: {Result}} = res;
-      const filteredResult = new Map();
+      // const filteredResult = new Map();
 
       if(statusCode == '200' && Result && Result.length) {
         Result.forEach((e:any) => {
-          const {SUB_CATEGORY_ID, SUB_CATEGORY_NAME, QUESTION, OPTIONS, IS_ACTIVE} = e;
-          if(filteredResult.has(SUB_CATEGORY_ID)) {
+          const {SUB_CATEGORY_ID, SUB_CATEGORY_NAME, QUESTION, OPTIONS, SELECTED_OPTION, IS_ACTIVE} = e;
+          const questionData = {
+            question: QUESTION,
+            options: OPTIONS,
+            selectedOption: SELECTED_OPTION,
+          };
 
-            let data = filteredResult.get(SUB_CATEGORY_ID);
-            const questionData = {
-              question: QUESTION,
-              options: OPTIONS,
-            };
+          if(this.mapCategories.has(SUB_CATEGORY_ID)) {
+            let data = this.mapCategories.get(SUB_CATEGORY_ID);
             data = {
               ...data,
               questions: [...data.questions, questionData]
             };
-            filteredResult.set(SUB_CATEGORY_ID, data);
+            this.mapCategories.set(SUB_CATEGORY_ID, data);
           }else {
-            const questionData = {
-              question: QUESTION,
-              options: OPTIONS,
-            };
             const data = {
               subCategoryId: SUB_CATEGORY_ID,
               subCategoryName: SUB_CATEGORY_NAME,
               questions: [questionData],
-              isActive: IS_ACTIVE,
+              // isActive: IS_ACTIVE,
+              isActive: 'N',
             };
-            filteredResult.set(SUB_CATEGORY_ID, data);
+            this.mapCategories.set(SUB_CATEGORY_ID, data);
           }
         });
-        console.warn('result => ', filteredResult);
+        this.categories = [...this.mapCategories.values()];
       }
+  }
+
+  public toggleCategorySelection(id: number):void {
+    if(!this.mapCategories.has(id)){
+      console.warn(`Category not found, id: ${id}`);
+      return;
+    }
+    this.mapCategories.forEach((e:any,i: any) => {
+      if(i == id) {
+        e.isActive = 'Y';
+        this.selectedCategory = {...e};
+      }else {
+        e.isActive = 'N';
+      }
+    });
+  }
+  public toggleQuestionSelection(questionId: number, optionId: number): void {
+    const question = this.selectedCategory.questions[questionId]
+    const option = question.options[optionId];
+
+    question.selectedOption = option.id;
+  }
+  
+  public validation():void {
+    let msg = '';
+    if(!Object.keys(this.selectedCategory).length) {
+      msg = 'Please, select a category...';
+    }else {
+      const atleadAquestionAnswered = this.selectedCategory.questions.some((e:any) => e.selectedOption != null);
+      msg = atleadAquestionAnswered ? '' : 'Please, answer for few questions...';
+    }
+
+
+    if(msg !== '') this.presentToast(msg);
+  }
+
+
+  public goBack(): void {
+    this.navigator.back();
+  }
+
+  public async showLoading () {
+    this.loader = await this.loaderCtrl.create({
+      message: 'Loading...',
+    });
+
+    this.loader.present();
+  }
+  
+  public hideLoading() {
+    this.loader?.dismiss();
+  }
+
+  public async presentToast(message: string) {
+    const toast = this.toastCtrl.create({
+      message,
+      duration: 2000,
+      position: 'top',
+      swipeGesture: 'vertical',
+    });
+
+    (await toast).present();
   }
 }

@@ -28,6 +28,14 @@ const routes: Routes = [
     path: 'list-goals',
     loadChildren: () => import('./list-goals/list-goals.module').then( m => m.ListGoalsPageModule)
   },
+  {  
+    path: 'add-goals',
+    loadChildren: () => import('./add-goals/add-goals.module').then( m => m.AddGoalsPageModule)
+  },
+  {
+    path: 'target-goals',
+    loadChildren: () => import('./target-goals/target-goals.module').then( m => m.TargetGoalsPageModule)
+  }
 ];
 @NgModule({
   imports: [IonicModule,
