@@ -1,0 +1,110 @@
+.custom-header {
+    box-shadow: none;
+    
+    ion-toolbar {
+        --background: var(--primary-clr);
+        padding: 0px;
+
+        .custom-back-button{
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .header-title {
+            color: #fff;
+            font-size: 18px;
+            line-height: 32px;
+            font-weight: 500;
+            font-family: "DM Sans", serif;
+            margin: 0;
+            padding: 0px;
+        }
+    }
+}
+
+
+.medical-container {
+    padding: 16px;
+    background-color: #ffffff;
+
+    .title {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-family: var(--dm-sans);
+        line-height: 96%;
+        color: #000000;
+    }
+
+    .records-list {
+        display: flex;
+        flex-direction: column;
+
+        .record-item {
+            background: #FAFAFA;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            border: 1px solid #E6E6E6;
+
+            .record-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+           
+                .file-name {
+                    color: #4A4A4A;
+                    font-size: 14px;
+                    font-weight: 400;
+                    font-family: var(--dm-sans);
+                    line-height: 96%;
+                }
+
+                .action-buttons {
+                    display: flex;
+
+                    ion-button {
+                        --padding-start: 8px;
+                        --padding-end: 8px;
+                        height: auto;
+                        margin: 0px;
+
+                        ion-icon {
+                            font-size: 20px;
+                            color: var(--primary-clr) !important;
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+
+    .add-record {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 24px;
+        padding: 12px;
+        cursor: pointer;
+   
+
+        ion-icon {
+            font-size: 24px;
+            color: var(--primary-clr);
+        }
+
+        span {
+            color: #3F3F3F;
+            font-size: 15px;
+            font-family: var(--dm-sans);
+            font-weight: 400;
+            line-height: 96%;
+        }
+    }
+
+}
+
+
+  
+  

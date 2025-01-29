@@ -19,6 +19,7 @@
 .goal-list-bg{
     background-color: rgba(151, 32, 115, 0.05);
     width: 100%;
+    min-height: 100vh;
     height: 100%;
 
     ion-segment {
@@ -63,7 +64,9 @@
 
   
 
- 
+ion-item{
+    --border-color: transparent;
+}
 
 ion-card-content{
     padding: 0px;

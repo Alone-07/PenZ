@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'target-goals',
     loadChildren: () => import('./target-goals/target-goals.module').then( m => m.TargetGoalsPageModule)
+  },
+  {
+    path: 'medical-records',
+    loadChildren: () => import('./medical-records/medical-records.module').then( m => m.MedicalRecordsPageModule)
   }
 ];
 @NgModule({

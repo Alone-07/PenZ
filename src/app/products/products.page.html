@@ -21,22 +21,31 @@
                 <ion-col size="4">
                     <div class="card_icons_header">
                         <div class="card_icons">
-                            <img src="../../assets/icon/plus.png" alt="" >
+                            <ion-icon name="add-outline"></ion-icon>
+                        </div>
+                        <div class="card_icons" (click)="toggleFavorite()">
+                            <ion-icon  [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
                         </div>
                         <div class="card_icons">
-                            <img src="../../assets/icon/like.png" alt="" >
-                        </div>
-                        <div class="card_icons">
-                            <img src="../../assets/icon/share.png" alt="">
+                            <ion-icon name="share-social-outline"></ion-icon>
                         </div>
                     </div>
                 </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col>
-                    <div class="prod_head">
-                        <img src="../../assets/images/prod.png" alt="" class="prod_img">
-                    </div>
+                    <swiper-container [slidesPerView]="1" [loop]="true" [pagination]="true" class="slider_head">
+                        <swiper-slide class="slider_card" [routerLink]="'/products'">
+                            <div class="prod_head">
+                                <img src="../../assets/images/prod.png" alt="products" class="prod_img">
+                            </div>
+                        </swiper-slide>
+                        <swiper-slide class="slider_card" [routerLink]="'/products'">
+                            <div class="prod_head">
+                                <img src="../../assets/images/prod.png" alt="products" class="prod_img">
+                            </div>
+                        </swiper-slide>
+                    </swiper-container>
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -73,11 +82,18 @@
                 <ion-col size="12">
                     <h2 class="description_title rating_heading">What is your rating this Product</h2>
                     <div class="rating_star">
+                        <!-- <img src="../../assets/icon/rating_star.png" alt="rating_star">
                         <img src="../../assets/icon/rating_star.png" alt="rating_star">
                         <img src="../../assets/icon/rating_star.png" alt="rating_star">
                         <img src="../../assets/icon/rating_star.png" alt="rating_star">
-                        <img src="../../assets/icon/rating_star.png" alt="rating_star">
-                        <img src="../../assets/icon/rating_star2.png" alt="rating_star">
+                        <img src="../../assets/icon/rating_star2.png" alt="rating_star"> -->
+                        <ng-container *ngFor="let star of stars; let i = index">
+                            <ion-icon 
+                              [name]="i < rating ? 'star' : 'star-outline'" 
+                              (click)="setRating(i + 1)"
+                              class="star_icon">
+                            </ion-icon>
+                          </ng-container>
                     </div>
                     <ion-textarea   label="Comments" labelPlacement="floating" fill="outline" placeholder="Enter your comments" rows="6" cols="12" class="comment_area"></ion-textarea>
                     <ion-button expand="block" class="rating_btn">Submit</ion-button>

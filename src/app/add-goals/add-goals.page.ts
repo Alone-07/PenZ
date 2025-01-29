@@ -13,10 +13,13 @@ export class AddGoalsPage implements OnInit {
   mapCategories:Map<any,any> = new Map();
   categories:any = [];
   selectedCategory: any = {};
-
+  showSecondPage: boolean = false;
   loader: any;
   progressValue: number = 50;
   isGoalDetailsFilled: boolean = false;
+
+  selectedDate: string = '';
+
   constructor(private apiService: ApiService, private navigator: NavController, private loaderCtrl: LoadingController, private toastCtrl: ToastController) { 
     this.getQuestions();
   }
@@ -25,15 +28,24 @@ export class AddGoalsPage implements OnInit {
   }
 
   onCancel() {
-    this.goBack();
+    if (this.showSecondPage) {
+      this.showSecondPage = false;
+      this.progressValue = 50;
+      this.isGoalDetailsFilled = false;
+    } else {
+      this.goBack();
+    }
   }
 
   onContinue() {
-    const isValidate = this.validate();
-    if(isValidate) {
-      this.isGoalDetailsFilled = isValidate;
-      this.progressValue = 100;
-    }
+    if (!this.showSecondPage) {
+      const isValidate = this.validate();
+      if(isValidate) {
+        this.isGoalDetailsFilled = isValidate;
+        this.progressValue = 100;
+        this.showSecondPage = true;
+      }
+    } 
   }
   
   async getQuestions() {
@@ -139,10 +151,17 @@ export class AddGoalsPage implements OnInit {
     const toast = this.toastCtrl.create({
       message,
       duration: 2000,
-      position: 'top',
+      position: 'middle',
       swipeGesture: 'vertical',
+      cssClass: 'custom-toast',
     });
 
     (await toast).present();
+  }
+
+  
+  handleDateChange(event: any) {
+    this.selectedDate = event.detail.value;
+    console.log('Selected date:', this.selectedDate);
   }
 }

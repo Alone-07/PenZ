@@ -8,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsPage implements OnInit {
 
+  rating: number = 0;
+  stars: number[] = [1, 2, 3, 4, 5];
+  isFavorite: boolean = false;
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  setRating(value: number) {
+    this.rating = value;
   }
 
+  toggleFavorite() {
+    this.isFavorite = !this.isFavorite;
+  }
 }

@@ -1,0 +1,36 @@
+<ion-header [translucent]="true" class="custom-header">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/account" icon="arrow-back-circle" class="custom-back-button"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="header-title">
+            Medical Records
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="medical-container">
+        <h2 class="title">Medical Records</h2>
+        <div class="records-list">
+            <div *ngFor="let record of records" class="record-item">
+                <div class="record-content">
+                    <span class="file-name">{{record.fileName}}</span>
+                    <div class="action-buttons">
+                        <ion-button fill="clear" (click)="viewRecord(record)">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </ion-button>
+                        <ion-button fill="clear" (click)="deleteRecord(record)">
+                            <ion-icon name="trash-outline" ></ion-icon>
+                        </ion-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-record" (click)="addRecord()">
+            <ion-icon name="camera-outline"></ion-icon>
+            <span>Add a Records</span>
+        </div>
+    </div>
+</ion-content>
