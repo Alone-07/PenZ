@@ -15,6 +15,8 @@ export class AddGoalsPage implements OnInit {
   selectedCategory: any = {};
 
   loader: any;
+  progressValue: number = 50;
+  isGoalDetailsFilled: boolean = false;
   constructor(private apiService: ApiService, private navigator: NavController, private loaderCtrl: LoadingController, private toastCtrl: ToastController) { 
     this.getQuestions();
   }
@@ -27,7 +29,11 @@ export class AddGoalsPage implements OnInit {
   }
 
   onContinue() {
-    this.validation();
+    const isValidate = this.validate();
+    if(isValidate) {
+      this.isGoalDetailsFilled = isValidate;
+      this.progressValue = 100;
+    }
   }
   
   async getQuestions() {
@@ -94,7 +100,7 @@ export class AddGoalsPage implements OnInit {
     question.selectedOption = option.id;
   }
   
-  public validation():void {
+  public validate():boolean {
     let msg = '';
     if(!Object.keys(this.selectedCategory).length) {
       msg = 'Please, select a category...';
@@ -104,7 +110,12 @@ export class AddGoalsPage implements OnInit {
     }
 
 
-    if(msg !== '') this.presentToast(msg);
+    if(msg !== '') {
+      this.presentToast(msg);
+      return false;
+    }
+
+    return true;
   }
 
 

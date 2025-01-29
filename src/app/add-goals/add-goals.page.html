@@ -12,6 +12,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    <section class="goal-bar-container">
+        <div class="bar-container" [class.bar-container-active]="isGoalDetailsFilled">
+            <p class="goal-no goal-no-active">
+                <span *ngIf="!isGoalDetailsFilled">1</span>
+                <img src="../../assets/icon/success.svg" alt="success" *ngIf="isGoalDetailsFilled">
+            </p>
+            <progress [value]="progressValue" max="100"></progress>
+            <p class="goal-no" [class.goal-no-active]="isGoalDetailsFilled">2</p>
+        </div>
+    </section>
     <div class="goals-bg">  
         <ion-grid class="goals-filter">
             <ion-row class="goals-select">
