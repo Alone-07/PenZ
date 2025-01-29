@@ -1,0 +1,45 @@
+<ion-header [translucent]="true" class="custom-header">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/" icon="arrow-back-circle" class="custom-back-button"></ion-back-button>
+            <!-- <ion-icon name="arrow-back-circle" class="custom-back-button"></ion-icon> -->
+        </ion-buttons>
+        <ion-title class="header-title">
+            My Skin Care - Goal
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div class="recommendation-bg">  
+        <ion-grid class="recommendation_header">
+            <ion-row class="recommendation_row">
+                <ion-col size="12">
+                    <h1 class="title">Products for your Hair</h1>  
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="card" *ngFor="let product of products">
+                <ion-col size="12">
+                    <div class="product-container">
+                        <div class="product-image-container">
+                            <img [src]="product.image" [alt]="product.name" class="product-image">
+                            <ion-icon   [name]="product.isLiked ? 'heart' : 'heart-outline'" [class.liked]="product.isLiked" class="favorite-icon" (click)="toggleLike(product)">
+                            </ion-icon>
+                        </div>
+                        <div class="product-info">
+                            <div class="rating_container">
+                                <p class="brand-name">{{ product.brand }}</p>
+                                <div class="rating">
+                                    <ion-icon name="star" class="star-filled"></ion-icon>
+                                    <span class="rating-number">{{ product.rating }}</span>
+                                </div>
+                            </div>
+                            <p class="product-name">{{ product.name }}</p>
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

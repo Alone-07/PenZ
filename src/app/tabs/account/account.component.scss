@@ -1,0 +1,116 @@
+.header{
+    box-shadow: none;
+    
+    .header_bg{
+        --background: var(--primary-clr) !important;
+
+        .title{
+            color: #fff;
+            font-size: 18px;
+            line-height: 32px;
+            font-weight: 500;
+            font-family: "DM Sans", serif;
+            margin: 0px;
+            text-align: center;
+        }
+    }
+}
+
+
+.profile-section {
+    padding: 20px 16px;
+    background-color: #fff;
+
+    .profile-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .avatar-container {
+            position: relative;
+
+            .profile-avatar {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .camera-badge {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                background: #fff;
+                border-radius: 50%;
+                padding: 2px;
+                font-size: 16px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        }
+
+        .user-details {
+            h2 {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 500;
+                color: #000;
+                font-family: "DM Sans", serif;
+            }
+
+            p {
+                margin: 4px 0 0;
+                font-size: 15px;
+                font-weight: 500;
+                color: #000;
+                font-family: "DM Sans", serif;
+            }
+        }
+    }
+}
+
+
+ion-content {
+    --background:  rgba(151, 32, 115, 0.05);
+}
+
+ion-col{
+    padding: 0px;
+}
+
+ion-grid {
+    padding: 0;
+}
+
+.menu-container {
+    padding: 0 16px;
+    margin: 0 auto;
+    max-width: 100%;
+  
+  
+    .menu-section {
+        background: #fff;
+        margin: 16px 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    
+        ion-item {
+            --padding-start: 16px;
+            --padding-end: 16px;
+            --background: #fff;
+            --min-height: 50px;
+            --inner-padding-end: 0;
+
+            &:last-child{
+                --border-color: transparent;
+            }
+
+            ion-label {
+                font-family: "DM Sans", serif;
+                font-size: 16px;
+                color: #000;
+                margin: 12px 0;
+            }
+        }
+    }
+}

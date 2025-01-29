@@ -1,0 +1,136 @@
+.custom-header {
+    box-shadow: none;
+    
+    ion-toolbar {
+        --background: var(--primary-clr);
+        padding: 0px;
+
+        .custom-back-button{
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .header-title {
+            color: #fff;
+            font-size: 18px;
+            line-height: 32px;
+            font-weight: 500;
+            font-family: "DM Sans", serif;
+            margin: 0;
+            padding: 0px;
+        }
+    }
+}
+
+.recommendation-bg{
+    background-color: rgba(151, 32, 115, 0.05);
+    width: 100%;
+    height: auto;
+
+    .recommendation_header{
+        padding: 10px 20px;
+
+        .recommendation_row{
+            padding: 0px;
+            ion-col{
+                padding: 0px;
+                .title{
+                    font-family: var(--dm-sans);
+                    font-size: 18px;
+                    line-height: 32px;
+                    font-weight: 700;
+                    margin: 0px;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 0px;
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 25px;
+
+    ion-col{
+        padding: 0px;
+        
+        .product-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            padding: 16px;
+            background: #f8f8f8;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+
+            .product-image {
+                height: 200px;
+                object-fit: contain;
+            }
+        
+            .favorite-icon {
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                color: var(--primary-clr);
+                font-size: 24px;
+            }
+        }
+
+        .product-info {
+            padding: 10px 15px;
+
+            .rating_container{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .brand-name {
+                    color: #939393;
+                    font-family: var(--dm-sans);
+                    font-weight: 400;
+                    font-size: 14px;
+                    margin: 0;
+                }
+                .rating {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+
+                    .star-filled {
+                        color: #ffd700;
+                    }
+                    .rating-number {
+                        font-weight: bold;
+                        color: #333;
+                    }
+                }
+            }
+
+            .product-name {
+                margin: 8px 0;
+                color: #000000;
+                font-family: var(--dm-sans);
+                font-weight: 400;
+            }
+        }
+    }    
+}
+  
+
+  
+  
+  
+  
+  
+ 
+  
+  

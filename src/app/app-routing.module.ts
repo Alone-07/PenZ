@@ -28,6 +28,15 @@ const routes: Routes = [
     path: 'list-goals',
     loadChildren: () => import('./list-goals/list-goals.module').then( m => m.ListGoalsPageModule)
   },
+  {
+    path: 'edit-goals',
+    loadChildren: () => import('./edit-goals/edit-goals.module').then( m => m.EditGoalsPageModule)
+  },
+  {
+    path: 'recommendation',
+    loadChildren: () => import('./recommendation/recommendation.module').then( m => m.RecommendationPageModule)
+  },
+
   {  
     path: 'add-goals',
     loadChildren: () => import('./add-goals/add-goals.module').then( m => m.AddGoalsPageModule)

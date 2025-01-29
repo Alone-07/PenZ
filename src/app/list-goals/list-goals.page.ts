@@ -17,6 +17,7 @@ interface Goal {
 })
 export class ListGoalsPage implements OnInit {
 
+  selectedSegment = 'all';
   goals: Goal[] = [
     { title: 'My Skin Care - Goal' },
     { title: 'Soft Hair Care Goal' },
@@ -38,6 +39,16 @@ export class ListGoalsPage implements OnInit {
 
   toggleExpand() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  isSkinExpanded = false;
+
+  skinToggleExpand() {
+    this.isSkinExpanded = !this.isSkinExpanded;
+  }
+
+  segmentChanged(event: any) {
+    this.selectedSegment = event.detail.value;
   }
 
   constructor() { }
