@@ -47,4 +47,9 @@
     --swiper-pagination-bullet-border-radius: 4px;
     --swiper-pagination-bullet-inactive-color: #a8a7a7;
     --swiper-pagination-color: var(--primary-clr);
-;}
+}
+
+.ion-color-primary{
+    --ion-color-base: #A91B78 !important;
+    --ion-color-base-rgb: var(--primary-clr, 0, 84, 233) !important;
+}
