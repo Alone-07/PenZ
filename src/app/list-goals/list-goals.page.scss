@@ -19,8 +19,9 @@
 .goal-list-bg{
     background-color: rgba(151, 32, 115, 0.05);
     width: 100%;
-    min-height: 100vh;
-    height: 100%;
+    min-height: 100%;
+    height: auto;
+    padding-bottom: 20px;
 
     ion-segment {
         --background: #f5f5f5;

@@ -82,11 +82,6 @@
                 <ion-col size="12">
                     <h2 class="description_title rating_heading">What is your rating this Product</h2>
                     <div class="rating_star">
-                        <!-- <img src="../../assets/icon/rating_star.png" alt="rating_star">
-                        <img src="../../assets/icon/rating_star.png" alt="rating_star">
-                        <img src="../../assets/icon/rating_star.png" alt="rating_star">
-                        <img src="../../assets/icon/rating_star.png" alt="rating_star">
-                        <img src="../../assets/icon/rating_star2.png" alt="rating_star"> -->
                         <ng-container *ngFor="let star of stars; let i = index">
                             <ion-icon 
                               [name]="i < rating ? 'star' : 'star-outline'" 
@@ -96,7 +91,7 @@
                           </ng-container>
                     </div>
                     <ion-textarea   label="Comments" labelPlacement="floating" fill="outline" placeholder="Enter your comments" rows="6" cols="12" class="comment_area"></ion-textarea>
-                    <ion-button expand="block" class="rating_btn">Submit</ion-button>
+                    <ion-button expand="block" class="rating_btn" [routerLink]="['/']">Submit</ion-button>
                 </ion-col>
             </ion-row>
         </ion-grid>

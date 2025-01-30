@@ -1,8 +1,7 @@
-<ion-header [translucent]="true" class="custom-header">
+<!-- <ion-header [translucent]="true" class="custom-header">
     <ion-toolbar>
         <ion-buttons slot="start">
             <ion-back-button defaultHref="/" icon="arrow-back-circle" class="custom-back-button"></ion-back-button>
-            <!-- <ion-icon name="arrow-back-circle" class="custom-back-button"></ion-icon> -->
         </ion-buttons>
         <ion-title class="header-title">
             Add a Goal
@@ -10,7 +9,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true"> -->
     <div class="goals-bg"> 
         <ion-grid>
             <ion-row class="target-head">
@@ -22,7 +21,14 @@
             <ion-row class="">
                 <ion-col size="12">
                     <h2 class="title subtitle">Target Date</h2>
-                    <ion-datetime locale="en-GB" hourCycle="h12" presentation="date" multiple="true" preferWheel="false"></ion-datetime>
+                    <ion-datetime 
+                        locale="en-GB"
+                        hourCycle="h12"
+                        presentation="date"
+                        preferWheel="false"
+                        [value]="selectedDate"
+                        (ionChange)="handleDateChange($event)">
+                    </ion-datetime>
                 </ion-col>
             </ion-row>
             <ion-row class="">
@@ -37,7 +43,7 @@
             </ion-row>
         </ion-grid>
     </div>
-
+<!-- 
 </ion-content>
 
 <ion-footer>
@@ -49,4 +55,4 @@
             <ion-button class="continue-button">Save</ion-button>
         </ion-buttons>
     </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

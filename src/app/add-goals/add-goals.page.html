@@ -3,7 +3,6 @@
     <ion-toolbar>
         <ion-buttons slot="start">
             <ion-back-button defaultHref="" icon="arrow-back-circle" class="custom-back-button" (click)="goBack()"></ion-back-button>
-            <!-- <ion-icon name="arrow-back-circle" class="custom-back-button"></ion-icon> -->
         </ion-buttons>
         <ion-title class="header-title">
             Add a Goal
@@ -48,40 +47,7 @@
             </ng-content>
         </ion-grid>
     </div>
-
-    <div class="goals-bg target-header" [class.d-none]="!showSecondPage"> 
-        <ion-grid>
-            <ion-row class="target-head">
-                <ion-col size="12">
-                    <h2 class="title">Define your Goal</h2>
-                    <ion-input label="My Skin Care - Goal" label-placement="floating" fill="outline" placeholder="My Skin Care - Goal" class="goal-input"></ion-input>
-                </ion-col>
-            </ion-row>
-            <ion-row class="">
-                <ion-col size="12">
-                    <h2 class="title subtitle">Target Date</h2>
-                    <ion-datetime 
-                        locale="en-GB"
-                        hourCycle="h12"
-                        presentation="date"
-                        preferWheel="false"
-                        [value]="selectedDate"
-                        (ionChange)="handleDateChange($event)">
-                    </ion-datetime>
-                </ion-col>
-            </ion-row>
-            <ion-row class="">
-                <ion-col size="12">
-                    <h2 class="title subtitle">Progress Tracker</h2>
-                    <progress value="50" max="100"> </progress>
-                    <div class="prog_range">
-                        <p>78 days left</p>
-                        <p>120 Days</p>
-                    </div>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </div>
+    <app-target-goals [class.d-none]="!showSecondPage"></app-target-goals>
 </ion-content>
 
 
@@ -100,7 +66,7 @@
             <ion-button (click)="onCancel()"  class="cancel-button">Back</ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
-            <ion-button class="continue-button">Save</ion-button>
+            <ion-button class="continue-button" [routerLink]="['/tabs/goals']" (click)="saveGoal()">Save</ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-footer>

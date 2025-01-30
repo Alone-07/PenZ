@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { LoadingController, NavController, ToastController } from '@ionic/angular';
 
+import { GoalsService } from '../services/goals.serivice';
 @Component({
   selector: 'app-add-goals',
   templateUrl: './add-goals.page.html',
@@ -20,7 +21,7 @@ export class AddGoalsPage implements OnInit {
 
   selectedDate: string = '';
 
-  constructor(private apiService: ApiService, private navigator: NavController, private loaderCtrl: LoadingController, private toastCtrl: ToastController) { 
+  constructor(private apiService: ApiService, private navigator: NavController, private loaderCtrl: LoadingController, private toastCtrl: ToastController, private goalsService: GoalsService) { 
     this.getQuestions();
   }
 
@@ -46,6 +47,18 @@ export class AddGoalsPage implements OnInit {
         this.showSecondPage = true;
       }
     } 
+  }
+
+  saveGoal() {
+    const goal = {
+      categoryId: this.selectedCategory.subCategoryId,
+      categoryName: this.selectedCategory.subCategoryName,
+      questions: this.selectedCategory.questions,
+      // Add any other relevant goal data
+    };
+    
+    this.goalsService.addGoal(goal);
+    this.navigator.navigateRoot('/tabs/goals');
   }
   
   async getQuestions() {
@@ -154,6 +167,7 @@ export class AddGoalsPage implements OnInit {
       position: 'middle',
       swipeGesture: 'vertical',
       cssClass: 'custom-toast',
+      color: 'light',
     });
 
     (await toast).present();

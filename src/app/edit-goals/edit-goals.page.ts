@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-edit-goals',
@@ -79,7 +80,7 @@ export class EditGoalsPage implements OnInit {
     }
     
     questions = [];
-    constructor(private apiService: ApiService) { 
+    constructor(private apiService: ApiService, private navigator: NavController) { 
       this.getQuestions();
     }
   
@@ -88,6 +89,7 @@ export class EditGoalsPage implements OnInit {
   
     onCancel() {
       // Handle cancel action
+      this.goBack();
       console.log('Cancel button clicked');
     }
   
@@ -139,5 +141,8 @@ export class EditGoalsPage implements OnInit {
         }
     }
 
+    public goBack(): void {
+      this.navigator.back();
+    }
  
 }

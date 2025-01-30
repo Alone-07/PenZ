@@ -15,6 +15,7 @@ import { ListGoalsPage } from './list-goals.page';
     IonicModule,
     ListGoalsPageRoutingModule
   ],
-  declarations: [ListGoalsPage]
+  declarations: [ListGoalsPage],
+  exports: [ListGoalsPage],
 })
 export class ListGoalsPageModule {}

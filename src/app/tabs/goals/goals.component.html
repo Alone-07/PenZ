@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <div class="goals-bg">        
+    <div class="goals-bg" *ngIf="!hasGoals">        
         <ion-grid class="goal_card">
             <ion-row class="goal_header">
                 <ion-col size="12">
@@ -16,4 +16,6 @@
             </ion-row>
         </ion-grid>
     </div>
+
+    <app-list-goals *ngIf="hasGoals"></app-list-goals>
 </ion-content>

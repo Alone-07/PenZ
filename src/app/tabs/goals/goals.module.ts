@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { GoalsRoutingModule } from './goals-routing.module';
 import { GoalsComponent } from './goals.component';
-
+import { ListGoalsPageModule } from 'src/app/list-goals/list-goals.module';
 
 @NgModule({
   declarations: [GoalsComponent],
@@ -13,7 +13,10 @@ import { GoalsComponent } from './goals.component';
     CommonModule,
     GoalsRoutingModule,
     FormsModule,
-    IonicModule
+    IonicModule,
+    ListGoalsPageModule
   ]
 })
-export class GoalsModule { }
+export class GoalsModule { 
+ 
+}

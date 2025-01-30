@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoalsService } from 'src/app/services/goals.serivice';
 
 interface Goal {
   title: string;
@@ -51,9 +52,17 @@ export class ListGoalsPage implements OnInit {
     this.selectedSegment = event.detail.value;
   }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  hasGoals = false;
+  addedGoals: any = [];
+  
+    constructor(private goalsService: GoalsService) {}
+  
+    ngOnInit() {
+      this.goalsService.getGoals().subscribe(goals => {
+        this.hasGoals = goals.length > 0;
+        console.warn(goals);
+        this.addedGoals = goals;
+      });
+    }
 
 }

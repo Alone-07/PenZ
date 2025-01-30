@@ -1,13 +1,12 @@
-<ion-header [translucent]="true" class="header">
+<!-- <ion-header [translucent]="true" class="header">
     <ion-toolbar class="header_bg">
         <ion-title class="title">My Goals</ion-title>
     </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 
-<ion-content>
-    <div class="goal-list-bg">
-          
+<!-- <ion-content>-->
+    <div class="goal-list-bg"> 
         <ion-grid>
             <ion-row>
               <ion-col size="12">
@@ -44,13 +43,13 @@
             <ion-card-content *ngIf="isExpanded">
                 <ion-grid class="dropdown-lists">
                     <ion-row>
-                        <ion-col size="6" class="sub-head">
+                        <ion-col size="6" class="sub-head" *ngFor="let goal of addedGoals">
                             <h3 class="sub-heading">Category</h3>
-                            <p class="sub-title">Skin</p>
+                            <p class="sub-title">{{goal.categoryName}}</p>
                         </ion-col>
                         <ion-col size="6" class="sub-head">
-                            <h3 class="sub-heading">Category</h3>
-                            <p class="sub-title">Skin</p>
+                            <h3 class="sub-heading">Skin Type</h3>
+                            <p class="sub-title">Oily Skin</p>
                         </ion-col>
                         <ion-col size="12" class="sub-head">
                             <h3 class="sub-heading">Any specific skin concerns?</h3>
@@ -68,50 +67,7 @@
                         <ion-buttons slot="start" [routerLink]="'/recommendation'">
                             <ion-button class="eye_btn"><ion-icon name="eye-outline"></ion-icon> View Recommendations</ion-button>
                         </ion-buttons>
-                        <ion-buttons slot="end">
-                            <ion-button class="edit_btn"><ion-icon name="create-outline"></ion-icon> Edit</ion-button>
-                        </ion-buttons>
-                    </ion-toolbar>
-                </ion-footer>
-            </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-            <ion-item (click)="skinToggleExpand()"  class="dropdown_head">
-                <ion-label class="title">
-                    Health & Wellness Goal
-                </ion-label>
-                <ion-icon   [name]="isSkinExpanded ? 'chevron-up' : 'chevron-down'" slot="end"  [class.expanded]="isSkinExpanded" icon="chevron-forward" class="chevron-icon"></ion-icon>
-            </ion-item>
-
-            <ion-card-content *ngIf="isSkinExpanded">
-                <ion-grid class="dropdown-lists">
-                    <ion-row>
-                        <ion-col size="6" class="sub-head">
-                            <h3 class="sub-heading">Category</h3>
-                            <p class="sub-title">Skin</p>
-                        </ion-col>
-                        <ion-col size="6" class="sub-head">
-                            <h3 class="sub-heading">Category</h3>
-                            <p class="sub-title">Skin</p>
-                        </ion-col>
-                        <ion-col size="12" class="sub-head">
-                            <h3 class="sub-heading">Any specific skin concerns?</h3>
-                            <p class="sub-title">Acne or breakouts</p>
-                        </ion-col>
-                        <ion-col size="12" class="sub-head">
-                            <h3 class="sub-heading">Any known skin conditions?</h3>
-                            <p class="sub-title">Eczema</p>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-                
-                <ion-footer>
-                    <ion-toolbar>
-                        <ion-buttons slot="start" [routerLink]="'/recommendation'">
-                            <ion-button class="eye_btn"><ion-icon name="eye-outline"></ion-icon> View Recommendations</ion-button>
-                        </ion-buttons>
-                        <ion-buttons slot="end">
+                        <ion-buttons slot="end" [routerLink]="'/edit-goals'">
                             <ion-button class="edit_btn"><ion-icon name="create-outline"></ion-icon> Edit</ion-button>
                         </ion-buttons>
                     </ion-toolbar>
@@ -122,10 +78,10 @@
         <ion-grid>
             <ion-row>
                 <ion-col size="12" class="add-btn">
-                    <ion-button expand="block" class="goal_add_btn" [routerLink]="['/tabs/goals/add-goals']"><ion-icon name="add-circle-outline" class="add_icon"></ion-icon>Add a New Goal</ion-button>
+                    <ion-button expand="block" class="goal_add_btn" [routerLink]="['/add-goals']"><ion-icon name="add-circle-outline" class="add_icon"></ion-icon>Add a New Goal</ion-button>
                 </ion-col>
             </ion-row>
         </ion-grid>
     </div>
 
-</ion-content>
+<!-- </ion-content> -->

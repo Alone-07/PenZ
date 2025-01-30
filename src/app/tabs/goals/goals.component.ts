@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoalsService } from 'src/app/services/goals.serivice';
 
 @Component({
   selector: 'app-goals',
@@ -8,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoalsComponent  implements OnInit {
 
-  constructor() { }
+  hasGoals = false;
+  addedGoals: any = [];
 
-  ngOnInit() {}
+  constructor(private goalsService: GoalsService) {}
+
+  ngOnInit() {
+    this.goalsService.getGoals().subscribe(goals => {
+      this.hasGoals = goals.length > 0;
+      this.addedGoals = goals;
+    });
+  }
 
 }

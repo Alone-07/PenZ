@@ -17,6 +17,7 @@ import { TargetGoalsPage } from './target-goals.page';
     IonicModule,
     TargetGoalsPageRoutingModule,
   ],
-  declarations: [TargetGoalsPage]
+  declarations: [TargetGoalsPage],
+  exports: [TargetGoalsPage],
 })
 export class TargetGoalsPageModule {}

@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TargetGoalsPage implements OnInit {
 
+  selectedDate: string = '';
   constructor() { }
 
   ngOnInit() {
   }
 
+  handleDateChange(event: any) {
+    this.selectedDate = event.detail.value;
+    console.log('Selected date:', this.selectedDate);
+  }
 }
