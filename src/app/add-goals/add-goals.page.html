@@ -53,20 +53,12 @@
 
 <ion-footer>
     <ion-toolbar [class.d-none]="showSecondPage">
-        <ion-buttons slot="start">
-            <ion-button (click)="onCancel()" class="cancel-button">Cancel</ion-button>
-        </ion-buttons>
-        <ion-buttons slot="end">
-            <ion-button (click)="onContinue()" class="continue-button">Continue</ion-button>
-        </ion-buttons>
+        <ion-button (click)="onCancel()" class="cancel-button" slot="start">Cancel</ion-button>
+        <ion-button (click)="onContinue()" class="continue-button" slot="end">Continue</ion-button>
     </ion-toolbar>
 
     <ion-toolbar [class.d-none]="!showSecondPage">
-        <ion-buttons slot="start">
-            <ion-button (click)="onCancel()"  class="cancel-button">Back</ion-button>
-        </ion-buttons>
-        <ion-buttons slot="end">
-            <ion-button class="continue-button" [routerLink]="['/tabs/goals']" (click)="saveGoal()">Save</ion-button>
-        </ion-buttons>
+        <ion-button (click)="onCancel()"  class="cancel-button" slot="start">Back</ion-button>
+        <ion-button class="continue-button" [routerLink]="['/tabs/goals']" (click)="saveGoal()" slot="end">Save</ion-button>
     </ion-toolbar>
 </ion-footer>
