@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { LoginCheckGuardGuard } from './guard/login-check-guard.guard';
 
 const routes: Routes = [
   // {
@@ -18,6 +19,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    // canActivate: [LoginCheckGuardGuard],
     loadChildren: () => import('./tabs/tab/tab.module').then(e => e.TabModule),
   },
   {

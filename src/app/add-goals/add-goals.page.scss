@@ -214,3 +214,6 @@ ion-content{
 .d-none {
     display: none !important;
 }
+ion-toast.custom-toast {
+    --background: red !important;
+}

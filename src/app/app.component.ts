@@ -13,7 +13,7 @@ register();
 export class AppComponent {
   constructor(
     private platform: Platform,
-    private statusBarService: StatusBarService
+    private statusBarService: StatusBarService,
   ) {
     this.initializeApp();
   }
