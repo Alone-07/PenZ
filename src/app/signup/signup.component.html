@@ -3,8 +3,11 @@
         <ion-row class="header-bg">
             <img src="../../assets/images/header-bg.svg" alt="BG Image" class="bg-img" />
         </ion-row>
-        <ion-row  class="header-content" style="position: relative;">
-            <ion-col>
+        <ion-row  class="header-content">
+            <ion-col size="12">
+                <ion-icon name="arrow-back-outline" [routerLink]="['/']"></ion-icon>
+            </ion-col>
+            <ion-col size="12" class="heading_titles">                
                 <img src="../../assets/icon/logo.svg" alt="Pen-Z Logo" class="logo" />
                 <h2 class="title">Get Started now</h2>
                 <p class="subtitle">Create an account to explore personalized  recommendations</p>
