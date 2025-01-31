@@ -74,7 +74,7 @@ ion-content{
 .goals-bg{
     background-color: rgba(151, 32, 115, 0.05);
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     height: auto;
     padding-bottom: 20px;
 }
@@ -126,12 +126,49 @@ ion-content{
     }
 }
 .goal-bar-container {
+
+    .details{
+        margin: 0px;
+        left: 20px;
+        position: relative;
+        text-align: start;
+        font-size: 14px;
+        font-family: var(--dm-sans);
+        font-weight: 500;
+        line-height: 18px;
+
+        &.goal-no-active {
+            color: var(--primary-clr);
+        }
+    }
+
+    .target{
+        margin: 0;
+        text-align: right;
+        right: 20px;
+        position: relative;
+        font-size: 14px;
+        font-family: var(--dm-sans);
+        font-weight: 500;
+        line-height: 18px;
+        color: #808080;
+
+        &.goal-no-active {
+            color: var(--primary-clr);
+        }
+    }
+
+
+    .bar-header{
+        padding: 13px 54px ;
+        padding-bottom: 0px;
+    }
     --pseduo-element-height: 22px;
-    padding: 13px 54px calc(20px + var(--pseduo-element-height));
     background-color: #F3F3F3;
     border: 1px solid #E0E0E0;
     border-radius: 0px 0px 10px 10px;
     z-index: 1;
+    padding-bottom: 20px;
 
     .bar-container-active {
         &::before, &::after{
@@ -174,25 +211,25 @@ ion-content{
             --clr: #fff;
         }
 
-        &::before {
-            --clr: var(--primary-clr);
-            position: absolute;
-            content: 'Goal Details';
-            color: var(--clr);
-            width: 100%;
-            height: 100%;
-            top: 120%;
-            left: -7%;
-        }
-        &::after {
-            position: absolute;
-            content: 'Goal Target';
-            color: var(--clr);
-            width: 100%;
-            height: 100%;
-            top: 120%;
-            right: -80%;
-        }
+        // &::before {
+        //     --clr: var(--primary-clr);
+        //     position: absolute;
+        //     content: 'Goal Details';
+        //     color: var(--clr);
+        //     width: 100%;
+        //     height: 100%;
+        //     top: 120%;
+        //     left: -7%;
+        // }
+        // &::after {
+        //     position: absolute;
+        //     content: 'Goal Target';
+        //     color: var(--clr);
+        //     width: 100%;
+        //     height: 100%;
+        //     top: 120%;
+        //     right: -80%;
+        // }
     }
 }
 .bar-container progress {

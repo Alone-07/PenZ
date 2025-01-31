@@ -3,5 +3,15 @@
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "plugins": {
+    "SplashScreen": {
+            "launchShowDuration": 3000,
+            "launchAutoHide": false,
+            "androidScaleType": "CENTER_CROP",
+            "splashImmersive": true,
+            "backgroundColor": "#ffffffff",
+            "androidSplashResourceName": "splash"
+        }
+  }
 }
