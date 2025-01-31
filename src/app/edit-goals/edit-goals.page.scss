@@ -30,6 +30,11 @@
     font-weight: 500;
     --padding-start: 24px;
     --padding-end: 24px;
+
+    &.has-focus{
+        --border-color: var(--primary-clr);
+        --highlight-color-focused: var(--primary-clr);
+    }
 }
  
 ion-footer {
