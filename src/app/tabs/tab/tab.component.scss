@@ -2,6 +2,7 @@ ion-tab-bar{
     height: 80px;
 
     ion-tab-button {
+        --color-selected:  #A91B78 !important;
         font-size: 12px;
         font-weight: 600;
         line-height: 125%;
